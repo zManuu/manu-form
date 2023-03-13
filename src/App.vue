@@ -1,30 +1,46 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
-  </nav>
-  <router-view/>
+  <ManuForm
+    :lang="lang"
+    :form="form" />
 </template>
+<script lang="ts">
 
-<style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
+import { defineComponent } from 'vue'
+import ManuForm from './Manu-Form.vue'
+
+const Lang: ILanguage = {}
+const Form: IForm = {
+  name: 'Test-Form',
+  inputs: [
+    {
+      inputType: 'text',
+      title: 'Vorname',
+      placeholder: true,
+      maxChars: 10,
+      isSubtitleItalic: true,
+      subtitle: '5-20 Zeichen, A-Z'
+    },
+    {
+      inputType: 'text',
+      placeholder: true,
+      isSubtitleItalic: true,
+      title: 'Nachname',
+      subtitle: '5-20 Zeichen, A-Z'
+    },
+    {
+      inputType: 'date',
+      title: 'Geburtstag'
+    }
+  ]
 }
 
-nav {
-  padding: 30px;
-}
-
-nav a {
-  font-weight: bold;
-  color: #2c3e50;
-}
-
-nav a.router-link-exact-active {
-  color: #42b983;
-}
-</style>
+export default defineComponent({
+  components: { ManuForm },
+  data() {
+    return {
+      lang: Lang,
+      form: Form
+    }
+  }
+})
+</script>
