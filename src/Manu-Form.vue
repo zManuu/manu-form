@@ -8,7 +8,16 @@
                 v-if="c().inputType == 'text'"
                 :maxlength="c().maxChars"
                 :placeholder="getPlaceholder(c())"
-                class="select-all border-2 px-2 py-1 rounded bg-gray-700 border-gray-600 outline-none" />
+                class="select-all border-2 px-2 py-1 rounded bg-gray-700 border-gray-600 outline-none"
+                v-model="c()._val" />
+            <input
+                v-if="c().inputType == 'number'"
+                :min="c().min"
+                :max="c().max"
+                :step="c().step"
+                type="range"
+                v-model="c()._val"
+                v-tooltip="c()._val" />
             <h1
                 v-if="c().subtitle"
                 :class="`${c().isSubtitleItalic ? 'italic' : 'not-italic'} text-${c().subtitleSize || 'base'}`">
@@ -42,7 +51,6 @@ export default defineComponent({
     data() {
         return {
             page: 0,
-            values: [] as any[],
             error: undefined as string | undefined
         }
     },

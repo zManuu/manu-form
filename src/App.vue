@@ -34,6 +34,15 @@ const Form: IForm = {
     {
       inputType: 'date',
       title: 'Geburtstag'
+    },
+    {
+      inputType: 'number',
+      title: 'Mischung Vater / Mutter',
+      step: 0.05,
+      min: 0,
+      max: 1,
+      subtitle: '0: Vater, 1: Mutter',
+      isSubtitleItalic: true
     }
   ]
 }

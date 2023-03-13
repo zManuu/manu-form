@@ -2,6 +2,7 @@ interface IFormInput {
     title: string
     inputType: 'text' | 'number' | 'date' | 'bool' | 'select'
     validate?: (value: string) => [true | string] // custom validation (look at the example)
+    _val?: any
     
     // subtitle options
     subtitle?: string
@@ -18,6 +19,7 @@ interface IFormInput {
     // number options
     min?: number
     max?: number
+    step?: number
 }
 
 interface IForm {
