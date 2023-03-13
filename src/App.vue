@@ -8,7 +8,11 @@
 import { defineComponent } from 'vue'
 import ManuForm from './Manu-Form.vue'
 
-const Lang: ILanguage = {}
+const Lang: ILanguage = {
+  backTooltip: 'Zurück (Strg + Pfeil hoch)',
+  forwardTooltip: 'Weiter (Strg + Pfeil runter)'
+}
+
 const Form: IForm = {
   name: 'Test-Form',
   inputs: [

@@ -20,13 +20,13 @@
                 v-if="page > 0"
                 class="outline-none"
                 icon="arrow-up"
-                v-tooltip="'Zurück'"
+                v-tooltip="lang.backTooltip"
                 @click="changePage(-1)" />
             <icon
                 v-if="page < form.inputs.length - 1"
                 class="outline-none"
                 icon="arrow-down"
-                v-tooltip="'Weiter'"
+                v-tooltip="lang.forwardTooltip"
                 @click="changePage(1)" />
         </div>
     </div>
@@ -63,7 +63,18 @@ export default defineComponent({
                 : typeof input.placeholder == 'string'
                     ? input.placeholder
                     : input.title
+        },
+        handleKeyUp(ev: KeyboardEvent) {
+            if (!ev.ctrlKey) return
+            console.log(ev)
+            if (ev.key === 'ArrowUp')
+                this.changePage(-1)
+            else if (ev.key === 'ArrowDown')
+                this.changePage(1)
         }
+    },
+    mounted() {
+        window.addEventListener('keyup', this.handleKeyUp)
     }
 })
 </script>

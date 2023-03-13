@@ -26,5 +26,6 @@ interface IForm {
 }
 
 interface ILanguage {
-
+    backTooltip: string
+    forwardTooltip: string
 }
