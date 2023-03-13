@@ -47,6 +47,11 @@ const Form: IForm = {
     {
       title: 'Zufälliges Aussehen',
       inputType: 'bool',
+    },
+    {
+      title: 'Geschlecht',
+      inputType: 'select',
+      selectOptions: ['Männlich', 'Weiblich']
     }
   ]
 }

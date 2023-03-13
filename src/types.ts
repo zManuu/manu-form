@@ -8,14 +8,16 @@ interface IFormInput {
     subtitle?: string
     isSubtitleItalic?: boolean
     subtitleSize?: 'xs' | 'sm' | 'base' | 'xl'
-
+    
     // select options
     selectOptions?: string[]
-
+    maxHeight?: number, // rem, defaults to 30
+    scrollbar?: boolean
+    
     // text options
     maxChars?: number
     placeholder?: string | true // true => use title as placeholder
-
+    
     // number options
     min?: number
     max?: number

@@ -22,6 +22,9 @@
                 v-if="c().inputType == 'bool'"
                 :state="c()._val"
                 @toggle="c()._val = !c()._val" />
+            <ManuFormSelect
+                v-if="c().inputType == 'select'"
+                :input-obj="c()" />
             <h1
                 v-if="c().subtitle"
                 :class="`${c().isSubtitleItalic ? 'italic' : 'not-italic'} text-${c().subtitleSize || 'base'}`">
@@ -47,9 +50,10 @@
 <script lang="ts">
 import { defineComponent, PropType } from 'vue'
 import ManuFormCheckbox from './Manu-Form-Checkbox.vue'
+import ManuFormSelect from './Manu-Form-Select.vue'
 
 export default defineComponent({
-    components: { ManuFormCheckbox },
+    components: { ManuFormCheckbox, ManuFormSelect },
     props: {
         form: { required: true, type: Object as PropType<IForm> },
         lang: { required: true, type: Object as PropType<ILanguage> },
