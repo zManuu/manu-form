@@ -1,7 +1,9 @@
 interface IFormInput {
+    // you must set these values
     title: string
     inputType: 'text' | 'number' | 'date' | 'bool' | 'select'
-    validate?: (value: string) => [true | string] // custom validation (look at the example)
+
+    // will store the value selected
     _val?: any
     
     // subtitle options

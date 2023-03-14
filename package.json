@@ -1,7 +1,11 @@
 {
   "name": "manu-form",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "author": {
+    "name": "zManuu",
+    "url": "https://github.com/zManuu"
+  },
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build"

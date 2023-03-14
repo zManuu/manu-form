@@ -1,19 +1,10 @@
-# manu-form
+## Project-Info
 
-## Project setup
-```
-npm install
-```
+Manu-Form provides a simple input box. It is based on pages, every input / step / question has an individual page. The style is created via tailwind.
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## Installation
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+1. Make sure you have installed npm, vue and typescript.
+2. Make sure your vue-project uses [tailwind](https://tailwindcss.com/) and [floating-vue](https://floating-vue.starpad.dev/).
+3. *npm i manu-form*
+4. Have fun. If needed, have a look at the [example](./src/App.vue).
