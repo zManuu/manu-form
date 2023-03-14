@@ -4,13 +4,13 @@
             <div class="flex justify-center gap-2">
                 <icon
                     v-if="page > 0"
-                    class="outline-none"
+                    class="outline-none hover:text-gray-100 transition duration-300 cursor-pointer hover:animate-pulse"
                     icon="arrow-left"
                     v-tooltip="lang.backTooltip"
                     @click="changePage(-1)" />
                 <icon
                     v-if="page < form.inputs.length - 1"
-                    class="outline-none"
+                    class="outline-none hover:text-gray-100 transition duration-300 cursor-pointer hover:animate-pulse"
                     icon="arrow-right"
                     v-tooltip="lang.forwardTooltip"
                     @click="changePage(1)" />
@@ -35,6 +35,7 @@
                 :max="c().max"
                 :step="c().step"
                 type="range"
+                class="hover:animate-pulse cursor-pointer"
                 v-model="c()._val"
                 v-tooltip="c()._val" />
             <ManuFormCheckbox
@@ -59,11 +60,13 @@
                 <h1>{{ lang.lastInput }}</h1>
                 <div class="flex flex-row gap-1">
                     <button
+                        @click="reset"
                         class="bg-red-500 border-red-600 border-2 rounded px-2 py-1 hover:bg-red-600 hover:border-red-500 transition duration-300">
                         <icon icon="rotate-left" />
                         {{ lang.reset }}
                     </button>
                     <button
+                        @click="confirm"
                         class="bg-green-500 border-green-600 border-2 rounded px-2 py-1 hover:bg-green-600 hover:border-green-500 transition duration-300">
                         <icon icon="check" />
                         {{ lang.confirm }}
@@ -115,6 +118,16 @@ export default defineComponent({
                 this.changePage(-1)
             else if (ev.key === 'ArrowRight')
                 this.changePage(1)
+        },
+        reset() {
+            for (const input of this.form.inputs) {
+                delete input._val
+            }
+            this.page = 0
+            this.$emit('reset')
+        },
+        confirm() {
+            this.$emit('confirm')
         }
     },
     mounted() {

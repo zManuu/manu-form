@@ -7,7 +7,8 @@
             v-for="(selectOption, index) in inputObj.selectOptions"
             :key="index"
             @click="inputObj._val = selectOption"
-            class="border-2 rounded text-center transition duration-300"
+            class="border-2 rounded text-center transition duration-300 cursor-pointer"
+            v-tooltip="``"
             :class="inputObj._val == selectOption ? 'bg-blue-500 border-blue-600 animate-pulse' : 'bg-gray-700 border-gray-600'">
             {{ selectOption }}
         </h1>

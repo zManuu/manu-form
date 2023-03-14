@@ -1,8 +1,9 @@
 <template>
   <ManuForm
     :lang="lang"
-    :form="form" />
-  {{ form }}
+    :form="form"
+    @confirm="confirm"
+    @reset="reset" />
 </template>
 <script lang="ts">
 
@@ -27,16 +28,17 @@ const Form: IForm = {
       title: 'Vorname',
       inputType: 'text',
       placeholder: true,
-      maxChars: 10,
+      maxChars: 20,
       isSubtitleItalic: true,
-      subtitle: '5-20 Zeichen, A-Z'
+      subtitle: 'bis 20 Zeichen, a-Z'
     },
     {
       title: 'Nachname',
       inputType: 'text',
       placeholder: true,
+      maxChars: 20,
       isSubtitleItalic: true,
-      subtitle: '5-20 Zeichen, A-Z'
+      subtitle: 'bis 20 Zeichen, a-Z'
     },
     {
       title: 'Geburtstag',
@@ -69,6 +71,14 @@ export default defineComponent({
     return {
       lang: Lang,
       form: Form
+    }
+  },
+  methods: {
+    confirm() {
+      console.log(`The form was confirmed with following values: ${JSON.stringify(this.form)}`)
+    },
+    reset() {
+      console.log('The form was reset.')
     }
   }
 })
