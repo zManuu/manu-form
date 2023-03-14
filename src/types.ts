@@ -32,4 +32,7 @@ interface IForm {
 interface ILanguage {
     backTooltip: string
     forwardTooltip: string
+    day: string,
+    month: string,
+    year: string
 }

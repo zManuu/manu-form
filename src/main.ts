@@ -8,7 +8,7 @@ import FloatingVue from 'floating-vue'
 import 'floating-vue/dist/style.css'
 
 // @ts-expect-error
-library.add(['ArrowUp', 'ArrowDown', 'Check'].map(e => iconDir['fa' + e]))
+library.add(['ArrowLeft', 'ArrowRight', 'Check', 'Calendar'].map(e => iconDir['fa' + e]))
 
 createApp(App)
     .component('icon', FontAwesomeIcon)

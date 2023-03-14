@@ -2,6 +2,7 @@
   <ManuForm
     :lang="lang"
     :form="form" />
+  {{ form }}
 </template>
 <script lang="ts">
 
@@ -9,8 +10,11 @@ import { defineComponent } from 'vue'
 import ManuForm from './components/Manu-Form.vue'
 
 const Lang: ILanguage = {
-  backTooltip: 'Zurück (Strg + Pfeil hoch)',
-  forwardTooltip: 'Weiter (Strg + Pfeil runter)'
+  backTooltip: 'Zurück (Strg + Pfeil links)',
+  forwardTooltip: 'Weiter (Strg + Pfeil rechts)',
+  day: 'Tag',
+  month: 'Monat',
+  year: 'Jahr'
 }
 
 const Form: IForm = {

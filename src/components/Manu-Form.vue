@@ -1,5 +1,24 @@
 <template>
-    <div class="bg-gray-800 border-gray-700 border-2 rounded p-3 text-white select-none flex gap-3 w-fit">
+    <div class="bg-gray-800 border-gray-700 border-2 rounded p-3 text-white select-none flex flex-col gap-3 w-fit">
+        <div class="flex justify-between items-center text-gray-400 text-sm">
+            <div class="flex justify-center gap-2">
+                <icon
+                    v-if="page > 0"
+                    class="outline-none"
+                    icon="arrow-left"
+                    v-tooltip="lang.backTooltip"
+                    @click="changePage(-1)" />
+                <icon
+                    v-if="page < form.inputs.length - 1"
+                    class="outline-none"
+                    icon="arrow-right"
+                    v-tooltip="lang.forwardTooltip"
+                    @click="changePage(1)" />
+            </div>
+            <h1>
+                {{ page + 1 }}/{{ form.inputs.length }}
+            </h1>
+        </div>
         <div class="flex flex-col gap-2 w-fit">
             <h1 class="text-xl font-semibold">
                 {{ c().title }}
@@ -25,25 +44,15 @@
             <ManuFormSelect
                 v-if="c().inputType == 'select'"
                 :input-obj="c()" />
+            <ManuFormDate
+                v-if="c().inputType == 'date'"
+                :input-obj="c()"
+                :lang="lang" />
             <h1
                 v-if="c().subtitle"
                 :class="`${c().isSubtitleItalic ? 'italic' : 'not-italic'} text-${c().subtitleSize || 'base'}`">
                 {{ c().subtitle }}
             </h1>
-        </div>
-        <div class="flex flex-col justify-center gap-2">
-            <icon
-                v-if="page > 0"
-                class="outline-none"
-                icon="arrow-up"
-                v-tooltip="lang.backTooltip"
-                @click="changePage(-1)" />
-            <icon
-                v-if="page < form.inputs.length - 1"
-                class="outline-none"
-                icon="arrow-down"
-                v-tooltip="lang.forwardTooltip"
-                @click="changePage(1)" />
         </div>
     </div>
 </template>
@@ -51,9 +60,10 @@
 import { defineComponent, PropType } from 'vue'
 import ManuFormCheckbox from './Manu-Form-Checkbox.vue'
 import ManuFormSelect from './Manu-Form-Select.vue'
+import ManuFormDate from './Manu-Form-Date.vue'
 
 export default defineComponent({
-    components: { ManuFormCheckbox, ManuFormSelect },
+    components: { ManuFormCheckbox, ManuFormSelect, ManuFormDate },
     props: {
         form: { required: true, type: Object as PropType<IForm> },
         lang: { required: true, type: Object as PropType<ILanguage> },
@@ -84,10 +94,9 @@ export default defineComponent({
         },
         handleKeyUp(ev: KeyboardEvent) {
             if (!ev.ctrlKey) return
-            console.log(ev)
-            if (ev.key === 'ArrowUp')
+            if (ev.key === 'ArrowLeft')
                 this.changePage(-1)
-            else if (ev.key === 'ArrowDown')
+            else if (ev.key === 'ArrowRight')
                 this.changePage(1)
         }
     },
