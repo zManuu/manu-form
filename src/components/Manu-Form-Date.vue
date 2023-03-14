@@ -2,7 +2,7 @@
     <div class="flex flex-row justify-center gap-2 items-center">
         <icon
             icon="calendar"
-            :class="{ 'text-red-500': !isValid }" />
+            :class="{ 'text-red-500 animate-pulse': !isValid }" />
         <div class="flex flex-row gap-1 items-end">
             <input
                 v-model="i_day"

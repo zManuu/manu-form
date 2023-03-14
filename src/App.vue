@@ -14,7 +14,10 @@ const Lang: ILanguage = {
   forwardTooltip: 'Weiter (Strg + Pfeil rechts)',
   day: 'Tag',
   month: 'Monat',
-  year: 'Jahr'
+  year: 'Jahr',
+  reset: 'Zurücksetzen',
+  confirm: 'Bestätigen',
+  lastInput: 'Du hast die letzte Frage erreicht.'
 }
 
 const Form: IForm = {

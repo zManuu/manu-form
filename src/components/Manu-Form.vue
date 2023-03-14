@@ -53,6 +53,23 @@
                 :class="`${c().isSubtitleItalic ? 'italic' : 'not-italic'} text-${c().subtitleSize || 'base'}`">
                 {{ c().subtitle }}
             </h1>
+            <div
+                v-if="page == form.inputs.length - 1"
+                class="mt-10 text-center">
+                <h1>{{ lang.lastInput }}</h1>
+                <div class="flex flex-row gap-1">
+                    <button
+                        class="bg-red-500 border-red-600 border-2 rounded px-2 py-1 hover:bg-red-600 hover:border-red-500 transition duration-300">
+                        <icon icon="rotate-left" />
+                        {{ lang.reset }}
+                    </button>
+                    <button
+                        class="bg-green-500 border-green-600 border-2 rounded px-2 py-1 hover:bg-green-600 hover:border-green-500 transition duration-300">
+                        <icon icon="check" />
+                        {{ lang.confirm }}
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </template>

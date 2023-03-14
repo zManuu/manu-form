@@ -5,6 +5,7 @@
         :class="state ? 'bg-blue-500 border-blue-600' : 'bg-gray-700 border-gray-600'">
         <icon
             v-if="state"
+            class="animate-pulse"
             icon="check" />
     </div>
 </template>

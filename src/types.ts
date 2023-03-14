@@ -34,5 +34,8 @@ interface ILanguage {
     forwardTooltip: string
     day: string,
     month: string,
-    year: string
+    year: string,
+    reset: string,
+    confirm: string,
+    lastInput: string
 }

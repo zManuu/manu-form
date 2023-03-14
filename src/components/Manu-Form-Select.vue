@@ -8,7 +8,7 @@
             :key="index"
             @click="inputObj._val = selectOption"
             class="border-2 rounded text-center transition duration-300"
-            :class="inputObj._val == selectOption ? 'bg-blue-500 border-blue-600' : 'bg-gray-700 border-gray-600'">
+            :class="inputObj._val == selectOption ? 'bg-blue-500 border-blue-600 animate-pulse' : 'bg-gray-700 border-gray-600'">
             {{ selectOption }}
         </h1>
     </div>
