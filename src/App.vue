@@ -9,6 +9,7 @@
 
 import { defineComponent } from 'vue'
 import ManuForm from './components/Manu-Form.vue'
+import { IForm, ILanguage } from './types'
 
 const Lang: ILanguage = {
   backTooltip: 'Zurück (Strg + Pfeil links)',

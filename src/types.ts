@@ -41,3 +41,9 @@ interface ILanguage {
     confirm: string,
     lastInput: string
 }
+
+export {
+    IForm,
+    IFormInput,
+    ILanguage
+}

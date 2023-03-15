@@ -15,6 +15,8 @@
     </div>
 </template>
 <script lang="ts">
+
+import { IFormInput } from '@/types'
 import { defineComponent, PropType } from 'vue'
 
 export default defineComponent({
